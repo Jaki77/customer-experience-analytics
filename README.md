@@ -69,8 +69,8 @@ App IDs are read dynamically from `.env`.
 
 ### 1. Clone repository
 ```bash
-git clone <your-repo-url>
-cd <repo>
+git clone https://github.com/Jaki77/customer-experience-analytics.git
+cd customer-experience-analytics
 ```
 
 ### 2. Create & activate virtual environment
