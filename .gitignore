@@ -12,3 +12,5 @@ plots/
 .ipynb_checkpoints/
 # OS files
 .DS_Store
+# env files
+.env
