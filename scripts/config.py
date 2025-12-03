@@ -39,6 +39,16 @@ DATABASE_CONFIG = {
     'schema': 'public'
 }
 
+# Report configuration
+REPORT_CONFIG = {
+    'company_name': 'Omega Consultancy',
+    'analyst_name': 'Data Analyst Team',
+    'report_title': 'Mobile Banking App Customer Experience Analysis',
+    'client': 'Ethiopian Banking Sector',
+    'banks': ['Commercial Bank of Ethiopia', 'Bank of Abyssinia', 'Dashen Bank'],
+    'report_date': 'December 2025'
+}
+
 # File paths
 DATA_PATHS = {
     'raw': '../data/raw',
@@ -53,6 +63,19 @@ DATA_PATHS = {
     'final_analysis': '../data/processed/analysis/final_analysis_results.csv'
 }
 
-# Create directories if not exist
+# Report paths
+REPORT_PATHS = {
+    'reports': '../reports',
+    'presentation': '../reports/presentation',
+    'visualizations': '../reports/visualizations',
+    'insights': '../data/processed/insights'
+}
+
+# Create report directories
+for path in REPORT_PATHS.values():
+    if isinstance(path, str) and path.startswith('../reports'):
+        os.makedirs(path, exist_ok=True)
+
+# Create data directories if not exist
 for path in [DATA_PATHS['raw'], DATA_PATHS['processed'], DATA_PATHS['analysis'], DATA_PATHS['database']]:
     os.makedirs(path, exist_ok=True)
