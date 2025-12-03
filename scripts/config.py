@@ -29,15 +29,30 @@ SCRAPING_CONFIG = {
     'country': 'et'  # Ethiopia
 }
 
+# Database configuartions
+DATABASE_CONFIG = {
+    'host': os.getenv('DB_HOST', 'localhost'),
+    'port': os.getenv('DB_PORT', '5432'),
+    'database': os.getenv('DB_NAME', 'bank_reviews'),
+    'user': os.getenv('DB_USER', 'postgres'),
+    'password': os.getenv('DB_PASSWORD', 'postgres'),
+    'schema': 'public'
+}
+
 # File paths
 DATA_PATHS = {
     'raw': '../data/raw',
     'processed': '../data/processed',
+    'analysis': '../data/processed/analysis',
+    'database': '../data/database',
     'raw_reviews': '../data/raw/reviews_raw.csv',
     'processed_reviews': '../data/processed/reviews_processed.csv',
-    'app_info': '../data/raw/app_info.csv'
+    'app_info': '../data/raw/app_info.csv',
+    'sentiment_results': '../data/processed/analysis/sentiment_results.csv',
+    'thematic_results': '../data/processed/analysis/themes_summary.csv',
+    'final_analysis': '../data/processed/analysis/final_analysis_results.csv'
 }
 
 # Create directories if not exist
-os.makedirs(DATA_PATHS['raw'], exist_ok=True)
-os.makedirs(DATA_PATHS['processed'], exist_ok=True)
+for path in [DATA_PATHS['raw'], DATA_PATHS['processed'], DATA_PATHS['analysis'], DATA_PATHS['database']]:
+    os.makedirs(path, exist_ok=True)
